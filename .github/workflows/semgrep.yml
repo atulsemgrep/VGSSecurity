@@ -7,9 +7,6 @@ on:
     - master
     paths:
     - .github/workflows/semgrep.yml
-  schedule:
-  # random HH:MM to avoid a load spike on GitHub Actions at 00:00
-  - cron: 58 4 * * *
 name: Semgrep
 jobs:
   semgrep:
@@ -23,4 +20,4 @@ jobs:
       image: semgrep/semgrep
     steps:
     - uses: actions/checkout@v4
-    - run: semgrep ci
+    - run: semgrep ci --debug
